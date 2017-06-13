@@ -1,0 +1,171 @@
+Details administratifs:
+
+- Aucune forme de communication n'est permise.
+
+        - Vous devez avoir votre carte d'etudiant. Vous devez la poser face visible
+          sur votre table
+
+        - Ceci est un examen, il est interdit de discuter, ecouter de la musique,
+          faire du bruit, ou de produire toute autres nuisances pouvant deranger les
+          autres etudiants ou perturber le bon deroulement de l'examen
+
+        - Vos telephones portables doivent etre eteints.
+
+        - Il faudra utiliser le sous-repertoire "rendu" a la racine du compte,
+          il contiendra les fichiers aux noms demandes pour chaque
+          exercice.
+
+        - Le repertoire "rendu", doit contenir un fichier nomme "auteur"
+          comprenant :
+                le login (ex: marvin) suivi d'un '\n'.
+          ce qui doit donner:
+
+          marvin@garfield> cat -e ~/rendu/auteur
+          marvin$
+
+	  Si votre fichier auteur est faux, il n'y aura pas de correction de l'exam.
+	  
+        - C'est un programme qui s'occupe du ramassage, respectez les noms,
+          les chemins, les fichiers et les repertoires ...
+
+        - LES DROITS DE VOS FICHIERS N'ONT AUCUNE IMPORTANCE, VOUS N'AVEZ DONC
+          PAS BESOIN DE LES CHANGER (SAUF SI ON VOUS LE DEMANDE DANS LE SUJET).
+
+        - En cas de probleme technique avec le sujet, on ne doit s'adresser qu'au
+          surveillant uniquement.
+
+        - Tout materiel non explicitement autorise est strictement interdit.
+
+        - Toute sortie est definitive.
+
+ ----------******------------*****------------******------------*****----------
+
+Vous devez effectuer le rendu dans ~/rendu/
+Pour chaque question vous devez rendre un fichier nomme
+ex_"no_question".sql contenant la requete SQL de l'exercice en question (la
+requete doit etre valide).
+
+Par exemple pour l'exercice 05 le fichier doit s'appeler ex_05.sql.
+
+Vous n'avez le droit de faire qu'une seule requete par question, sauf quand il
+est explicitement precise que l'on peut/doit faire plusieurs requetes.
+
+Quand vous vous loguez vous devez initialiser la base de donnees
+avec le script "~/sujet/install_sql.sh". Le script installe la base
+et lance le serveur.
+
+Une fois le serveur lance, vous pouvez vous y connecter avec votre client
+MariaDB. Le login est "root" et il n'y as pas de password. La base de
+donnee a utiliser s'appelle epitech_exam, c'est la seule base a utiliser,
+dans les reponses que vous rendrez il ne faut pas selectionner la base.
+
+(machin_t@bidule) mysql --defaults-extra-file=~/sujet/.my.cnf -u root epitech_exam
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 1
+Server version: 5.2.12-MariaDB SUSE Mysql RPM
+
+This software comes with ABSOLUTELY NO WARRANTY. This is free software,
+and you are welcome to modify and redistribute it under the GPL v2 license
+
+Type 'help;' or '\h' for help. Type '\c' to clear the buffer.
+
+MariaDB[epitech_exam]>
+
+Le contenu de la base utilisee pour la correction sera peut etre le meme que
+ce que vous avez lors de l'examen.
+
+Attention ! Lorsque l'on vous demande de selectionner une colonne de type date,
+si rien n'est specifie concernant son format alors vous ne devez pas le
+transformer mais l'extraire tel que present dans la base.
+
+Egalement, si l'on ne vous demande pas de supprimer les doublons, vous etes
+censes afficher l'ensemble des valeurs (y compris les doublons donc).
+
+Enfin si vous devez triez sur une/des colonne(s), vous n'avez pas a vous soucier
+des valeurs nulles.
+
+Questions:
+
+01) Faites une requete qui affiche le nom des pays dans une colonne `Nom`, 
+classes par ordre alphabetique croissant.
+
+02) Faites une requete qui affiche dans une colonne `Nb films Finlande` le 
+nombre de film dont le pays d'origine est la Finlande.
+
+03) Faites une requete qui affiche le titre des films dans une colonne `Titre`
+et le nom du genre correspondant dans une colonne `Genre`, ordonne par id_film
+decroissant. Votre requete n'affichera que les 42 premiers enregistrements.
+
+04) Faites une requete qui affiche dans une colonne `Prenom - Nom` le prenom 
+puis le nom (separes par un trait d'union lui-meme entoure d'espaces) des 
+individus dont la date de naissance est au 19eme siecle (calendrier gregorien),
+le tout ordonne par id_individu croissant. Vous veillerez a ce qu'aucun doublon
+ne soit affiche.
+
+05) Faites une requete qui affiche dans une colonne `Titre` le titre des films 
+dont la duree est comprise entre 149 et 151 minutes, ordonnes par id_film 
+decroissant.
+
+06) Faites une requete qui affiche dans une colonne `Prenom` les prenoms des 
+individus dont le nom commence par la lettre 'Q', ordonnes par id_individu 
+croissant.
+
+07) Faites une requete qui affiche dans une colonne `Titre` le titre, dans une 
+colonne `Minutes` la duree, dans une colonne `Annee` l'annee de sortie et dans 
+une colonne `Mois` le mois de sortie des films dont le synopsis contient le mot
+'examen', le tout ordonne par id_film croissant.
+
+08) Faites une requete qui affiche dans une colonne `Duree moyenne` la duree 
+moyenne des films dont la duree est connue.
+
+09) Faites une requete qui affiche dans une colonne `Titre` le titre des films 
+dont l'id_film est inferieur a 42 et est paire, ordonnes par id_film decroissant.
+
+10) Faites une requete qui affiche dans une colonne `Genre` le nom des genres 
+dont l'id est egale a 1, 2, 5, 9, 12 ou 24, classes par ordre alphabetique 
+croissant.
+
+11) Faites une requete qui affiche dans une colonne `Prenom` le prenom et dans 
+une colonne `Nom` le nom des individus dont le nom comporte la lettre 'w' et 
+dont le pays et la date de naissance sont connus. Les resultats seront tries 
+par nom puis par prenom par ordre alphabetique croissant.
+
+12) Faites une requete qui affiche dans une colonne `Role` les differents roles
+existants dans la table equipe_film (il ne s'agit bien entendu pas d'afficher 
+toutes les valeurs mais une seule fois chacun), classes par ordre alphabetique
+croissant.
+
+13) Faites une requete qui affiche dans une colonne `Titre Film` le titre des 
+films qui ont comme id de genre 0, 5 ou 6 et dont le titre commence par la 
+lettre E. Le tout sera trie par ordre alphabetique croissant.
+
+14) Faites une requete qui affiche dans une colonne `TITRE FILM` le titre des 
+films en majuscule qui ont un id compris en 4 et 50 (inclus). Vous ordonnerez 
+les resultats par id croissant.
+
+15) Faites une requete qui affiche dans une colonne `Titre Film` le titre des 
+films ordonne par date de sortie decroissante.
+
+16) Faites une requete qui affiche dans une colonne `Titre - Synopsis` le titre
+et le synopsis des 50 films les plus recents. Vous veillerez a bien separer le 
+titre du film et son synopsis par ' - ', et ordonnerez le tout par date de 
+sortie (les plus recent en premier, les plus anciens en dernier).
+ 
+17) Faites une requete qui affiche dans une colonne `Titre MD5` le titre des 
+films chiffre en MD5, dans une colonne `Titre SHA1` le titre des films chiffre 
+en SHA1 et dans une colonne `Titre Hexa` le titre des films chiffre en 
+hexadecimal. Vous ordonnerez vos resultats par id de film croissant.
+
+18) Faites une requete qui affiche dans une colonne `Titre Film` le titre des 
+films contenant dans leurs titres la chaine de caracteres 'day' et dont le 
+genre des films est egal a 1 . Vous ordonnerez vos resultats par ordre 
+alphabetique croissant.
+
+19) Faites une requete qui affiche dans une colonne `id Film` l'id des films, 
+dans une colonne `Titre Film` les titres et dans une colonne `Date Sortie` la 
+date de sortie des 42 films les plus recents. Vos resultats seront ordonnes par
+date de sortie decroissante, puis par id de film croissant. Note : un film 
+sorti est un film dont on connait la date de sortie.
+
+20) Faites une requete qui affiche dans une colonne `Max id Film` le plus grand
+id_film pour le genre 'Action'.

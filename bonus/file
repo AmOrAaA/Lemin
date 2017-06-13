@@ -1,0 +1,22 @@
+34
+##start
+johnattend 20 3
+bertag 14 6
+lol 14 26
+#comment
+testu 16 25
+ryan 16 6
+42 5 70
+6 2 43
+7 2 8
+##end
+lemin 5 41
+42-lemin
+lemin-6
+6-7
+7-bertag
+bertag-lol
+bertag-ryan
+lol-testu
+testu-ryan
+ryan-johnattend
